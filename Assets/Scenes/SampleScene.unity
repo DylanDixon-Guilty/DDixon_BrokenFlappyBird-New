@@ -1759,7 +1759,7 @@ MonoBehaviour:
   HitAudio: {fileID: 8300000, guid: a9990a7cfaf205a4e99390b559fd8c37, type: 3}
   SwooshingAudio: {fileID: 8300000, guid: 2a778e779a03c68478800ff75c172464, type: 3}
   WingAudio: {fileID: 8300000, guid: 4ac3404ec0174c84f96d651d644bbc21, type: 3}
-  maxJumpVelocity: 7
+  maxJumpVelocity: 6
   maxUpwardAngle: 45
   maxDownwardAngle: -90
   rotationLerpSpeed: 5

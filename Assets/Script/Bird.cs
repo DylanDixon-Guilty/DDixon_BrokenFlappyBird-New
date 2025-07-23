@@ -14,7 +14,7 @@ public class Bird : MonoBehaviour
     public AudioClip SwooshingAudio;
     public AudioClip WingAudio; // The sound when the player jumps
     public static bool IsAlive = false;
-    public float maxJumpVelocity = 7f;
+    public float maxJumpVelocity = 6f;
     public float maxUpwardAngle = 45f;
     public float maxDownwardAngle = -90f;
     public float rotationLerpSpeed = 5f;
@@ -42,7 +42,7 @@ public class Bird : MonoBehaviour
     }
 
     /// <summary>
-    /// When the player presses spacebar or the left mouse button, the player go up by 7 (on the y axis).
+    /// When the player presses spacebar or the left mouse button, the player go up by 6 (on the y axis).
     /// </summary>
     private void Jump()
     {

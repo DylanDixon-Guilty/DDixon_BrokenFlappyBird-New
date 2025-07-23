@@ -22,12 +22,15 @@ public class GroundScroll : MonoBehaviour
             transform.Translate(Vector2.left * scrollSpeed * Time.deltaTime);
         }
 
-        if (transform.position.x <= -groundPositionX)
+        if (transform.position.x < -groundPositionX)
         {
             RepositionGround();
         }
     }
 
+    /// <summary>
+    /// This functions handles the Ground moving off screen, so when the BoxCollider is no longer in view of the camera, it will move to the right.
+    /// </summary>
     private void RepositionGround()
     {
         Vector2 newPos = new Vector2(groundPositionX * 2f, 0);

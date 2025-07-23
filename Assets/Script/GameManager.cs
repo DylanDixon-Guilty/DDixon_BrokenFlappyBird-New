@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public Bird bird;
     public PipeSpawner pipeSpawner;
     public UIManager uiManager;
-    public AudioSource AudioSource;
+    public AudioSource AudioPlayer;
     public AudioClip PointAudio;
 
     private int score = 0;
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// When the player presses the Menu Button, Reset the player position and score and delete all Pipes
+    /// When the player presses the Menu Button, Reset the player position, score, delete all Pipes, and show the StartScreen
     /// </summary>
     public void ResetGame()
     {
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// When called upon, show the ReadyScreen and show the bird on screen.
+    /// When called upon, show the ReadyScreen and show the bird(Player) on screen.
     /// </summary>
     public void ReadyGame()
     {
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Called upon when the player dies
+    /// When the player dies, show the GameOver Screen
     /// </summary>
     public void GameOver()
     {
@@ -80,6 +80,6 @@ public class GameManager : MonoBehaviour
     {
         score++;
         uiManager.UpdateScore(score);
-        AudioSource.PlayOneShot(PointAudio);
+        AudioPlayer.PlayOneShot(PointAudio);
     }
 }

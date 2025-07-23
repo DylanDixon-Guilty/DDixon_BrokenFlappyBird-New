@@ -2,22 +2,22 @@ using UnityEngine;
 
 public class Pipe : MonoBehaviour
 {
-    public float moveSpeed = 2f;
-    public float destroyX = -10f;
-    public bool scored = false;
+    public float MoveSpeed = 2f;
+    public float DestroyPipeAtX = -10f;
+    public bool Scored = false;
 
     void Update()
     {
-        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+        transform.position += Vector3.left * MoveSpeed * Time.deltaTime;
 
-        if (!scored && transform.position.x < 0)
+        if (!Scored && transform.position.x < 0)
         {
-            scored = true;
+            Scored = true;
             GameManager.Instance.IncreaseScore();
 
         }
 
-        if (transform.position.x < destroyX)
+        if (transform.position.x < DestroyPipeAtX)
         {
             Destroy(gameObject);
         }

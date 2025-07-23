@@ -3,22 +3,22 @@ using UnityEngine.InputSystem;
 
 public class Bird : MonoBehaviour
 {
-    private Rigidbody2D birdRB;
-    private Animator birdAnimator;
-    private Vector3 initialBirdPosition;
-    private Quaternion initialBirdRotation;
-
     public AudioSource AudioPlayer;
     public AudioClip DieAudio;
     public AudioClip HitAudio;
     public AudioClip SwooshingAudio;
     public AudioClip WingAudio; // The sound when the player jumps
     public static bool IsAlive = false;
-    public float maxJumpVelocity = 6f;
-    public float maxUpwardAngle = 45f;
-    public float maxDownwardAngle = -90f;
-    public float rotationLerpSpeed = 5f;
-    public float gravityScale = 3f;
+    public float MaxJumpVelocity = 6f;
+    public float MaxUpwardAngle = 45f;
+    public float MaxDownwardAngle = -90f;
+    public float RotationLerpSpeed = 5f;
+    public float GravityScale = 3f;
+
+    private Rigidbody2D birdRB;
+    private Animator birdAnimator;
+    private Vector3 initialBirdPosition;
+    private Quaternion initialBirdRotation;
 
     void Start()
     {
@@ -46,13 +46,13 @@ public class Bird : MonoBehaviour
     /// </summary>
     private void Jump()
     {
-        birdRB.linearVelocity = Vector2.up * maxJumpVelocity;
+        birdRB.linearVelocity = Vector2.up * MaxJumpVelocity;
         AudioPlayer.PlayOneShot(WingAudio);
         birdAnimator.SetTrigger("Jump");
     }
 
     /// <summary>
-    /// Turn the player to be facing either up or down. When falling, face down; when jumping, face up.
+    /// Turn the player(Bird) to be facing either up or down. When falling, face down; when jumping, face up.
     /// </summary>
     void RotateBasedOnVelocity()
     {
@@ -61,11 +61,11 @@ public class Bird : MonoBehaviour
         float rotation = 0f;
         if (verticalVelocity > 0)
         {
-            rotation = Mathf.InverseLerp(0, maxJumpVelocity, verticalVelocity);
+            rotation = Mathf.InverseLerp(0, MaxJumpVelocity, verticalVelocity);
         }
         else
         {
-            rotation = Mathf.InverseLerp(0, -maxJumpVelocity, verticalVelocity);
+            rotation = Mathf.InverseLerp(0, -MaxJumpVelocity, verticalVelocity);
             if (rotation < 0)
             {
                 rotation = 0;
@@ -75,11 +75,11 @@ public class Bird : MonoBehaviour
 
         if(verticalVelocity > 0)
         {
-            targetAngle = Mathf.Lerp(0, maxUpwardAngle, rotation);
+            targetAngle = Mathf.Lerp(0, MaxUpwardAngle, rotation);
         }
         else
         {
-            targetAngle = Mathf.Lerp(0, maxDownwardAngle, rotation);
+            targetAngle = Mathf.Lerp(0, MaxDownwardAngle, rotation);
         }
         
         float currentZ = transform.eulerAngles.z;
@@ -88,7 +88,7 @@ public class Bird : MonoBehaviour
             currentZ -= 360;
         }
 
-        float newZ = Mathf.Lerp(currentZ, targetAngle, Time.deltaTime * rotationLerpSpeed);
+        float newZ = Mathf.Lerp(currentZ, targetAngle, Time.deltaTime * RotationLerpSpeed);
         transform.rotation = Quaternion.Euler(0f, 0f, newZ);
     }
 
@@ -98,7 +98,7 @@ public class Bird : MonoBehaviour
     public void StartGame()
     {
         IsAlive = true;
-        birdRB.gravityScale = gravityScale;
+        birdRB.gravityScale = GravityScale;
         birdRB.linearVelocity = Vector2.zero;
     }
 
@@ -114,7 +114,7 @@ public class Bird : MonoBehaviour
     }
 
     /// <summary>
-    /// When player dies show the GameOverScreen
+    /// When the player dies, show the GameOverScreen
     /// </summary>
     public void Die()
     {

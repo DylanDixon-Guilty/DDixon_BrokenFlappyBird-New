@@ -3,8 +3,8 @@ using UnityEngine;
 public class PipeSpawner : MonoBehaviour
 {
     public GameObject Pipeprefab;
-    public float spawnRate;
-    public float randomHeight;
+    public float SpawnRate;
+    public float RandomHeight;
     public Transform PipeTransform;
     
     private float timeToSpawnPipe = float.MaxValue;
@@ -12,7 +12,7 @@ public class PipeSpawner : MonoBehaviour
     void Update()
     {
         timeToSpawnPipe += Time.deltaTime;
-        if (timeToSpawnPipe >= spawnRate)
+        if (timeToSpawnPipe >= SpawnRate)
         {
             SpawnPipe();
             timeToSpawnPipe = 0f;
@@ -32,7 +32,7 @@ public class PipeSpawner : MonoBehaviour
     /// </summary>
     void SpawnPipe()
     {
-        float yOffset = Random.Range(-randomHeight, randomHeight);
+        float yOffset = Random.Range(-RandomHeight, RandomHeight);
         Vector3 spawnPosition = PipeTransform.position + Vector3.up * yOffset;
         Instantiate(Pipeprefab, spawnPosition, Quaternion.identity);
     }

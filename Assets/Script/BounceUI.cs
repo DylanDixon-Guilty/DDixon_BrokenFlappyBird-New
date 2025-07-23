@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class BounceUI : MonoBehaviour
 {
-    public float bounceHeight;
-    public float bounceDuration;
+    public float BounceHeight;
+    public float BounceDuration;
 
     private RectTransform rectTransform;
     private Vector2 startAnchoredPos;
@@ -22,7 +22,7 @@ public class BounceUI : MonoBehaviour
     /// </summary>
     IEnumerator BounceUp()
     {
-        yield return StartCoroutine(MoveVertical(startAnchoredPos, startAnchoredPos + Vector2.up * bounceHeight, bounceDuration));
+        yield return StartCoroutine(MoveVertical(startAnchoredPos, startAnchoredPos + Vector2.up * BounceHeight, BounceDuration));
         StartCoroutine(BounceDown());
     }
 
@@ -31,7 +31,7 @@ public class BounceUI : MonoBehaviour
     /// </summary>
     IEnumerator BounceDown()
     {
-        yield return StartCoroutine(MoveVertical(startAnchoredPos + Vector2.up * bounceHeight, startAnchoredPos, bounceDuration));
+        yield return StartCoroutine(MoveVertical(startAnchoredPos + Vector2.up * BounceHeight, startAnchoredPos, BounceDuration));
     }
 
     /// <summary>

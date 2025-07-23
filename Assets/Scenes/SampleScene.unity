@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad160665ad30be468746c093f60ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 2
+  ScrollSpeed: 2
 --- !u!212 &210458026
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad160665ad30be468746c093f60ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 2
+  ScrollSpeed: 2
 --- !u!1 &513800173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad160665ad30be468746c093f60ac00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 2
+  ScrollSpeed: 2
 --- !u!1 &807683797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1499,8 +1499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51dac129373b4e949a789e9cf9cebf31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceHeight: 45
-  bounceDuration: 0.5
+  BounceHeight: 0
+  BounceDuration: 0
 --- !u!1 &1126978217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,11 +1672,11 @@ MonoBehaviour:
   HitAudio: {fileID: 8300000, guid: a9990a7cfaf205a4e99390b559fd8c37, type: 3}
   SwooshingAudio: {fileID: 8300000, guid: 2a778e779a03c68478800ff75c172464, type: 3}
   WingAudio: {fileID: 8300000, guid: 4ac3404ec0174c84f96d651d644bbc21, type: 3}
-  maxJumpVelocity: 6
-  maxUpwardAngle: 45
-  maxDownwardAngle: -90
-  rotationLerpSpeed: 5
-  gravityScale: 3
+  MaxJumpVelocity: 6
+  MaxUpwardAngle: 45
+  MaxDownwardAngle: -90
+  RotationLerpSpeed: 5
+  GravityScale: 3
 --- !u!95 &1126978223
 Animator:
   serializedVersion: 7
@@ -2662,7 +2662,7 @@ MonoBehaviour:
   bird: {fileID: 1126978222}
   pipeSpawner: {fileID: 2077817621}
   uiManager: {fileID: 2077817620}
-  AudioSource: {fileID: 1333864056}
+  AudioPlayer: {fileID: 1333864056}
   PointAudio: {fileID: 8300000, guid: e79c03398a224d64ea0f2a3141620b25, type: 3}
 --- !u!4 &2077817619
 Transform:
@@ -2709,8 +2709,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pipeprefab: {fileID: 8895835194987703811, guid: 1ba1edbadf2e9b445a570241889d50da, type: 3}
-  spawnRate: 2
-  randomHeight: 1
+  SpawnRate: 2
+  RandomHeight: 1
   PipeTransform: {fileID: 1689678197}
 --- !u!1 &2110664486
 GameObject:
